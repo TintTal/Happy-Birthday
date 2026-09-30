@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>A little world for you ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background layers -->
+  <div class="nebula"></div>
+  <canvas id="bg"></canvas>
+  <div id="flash"></div>
+
+  <!-- OPENING SCREEN -->
+  <section id="intro">
+    <h1>Happy Birthday, <span data-name="display"></span> ❤️</h1>
+    <p id="introSub">Tonight, I made a little world just for you...</p>
+    <button id="openBtn" class="glow-btn">Open Your Surprise ✨</button>
+  </section>
+
+  <!-- MAIN EXPERIENCE (sections are revealed one by one) -->
+  <main id="main" class="hidden">
+
+    <section class="chapter" id="c-welcome">
+      <h2>Welcome to your little universe</h2>
+      <p class="lead" id="welcomeText"></p>
+      <button class="glow-btn next" data-next="c-message">Keep going ✨</button>
+    </section>
+
+    <section class="chapter hidden" id="c-message">
+      <div class="glass box">
+        <h2><span data-name="cute"></span>, here's something I want you to know...</h2>
+        <p class="lead" id="messageText"></p>
+      </div>
+      <button class="glow-btn next" data-next="c-letter">Read my letter 💌</button>
+    </section>
+
+    <section class="chapter hidden" id="c-letter">
+      <div class="letter glass">
+        <h2 class="script" data-name="letter" data-suffix=","></h2>
+        <div id="letterBody"></div>
+        <p class="sign" id="letterSign"></p>
+      </div>
+      <button class="glow-btn next" data-next="c-adore">Things I adore ❤️</button>
+    </section>
+
+    <section class="chapter hidden" id="c-adore">
+      <h2>Things I adore about you</h2>
+      <p class="hint">Tap each card 💗</p>
+      <div class="cards" id="adoreCards"></div>
+      <!-- 🤫 Secret: a tiny glowing heart. Click it! -->
+      <button id="secretBtn" class="secret" aria-label="A tiny glowing heart">♥</button>
+      <button class="glow-btn next" data-next="c-gallery">Little memories 📸</button>
+    </section>
+
+    <section class="chapter hidden" id="c-gallery">
+      <h2>Memories</h2>
+      <div class="gallery" id="gallery"></div>
+      <button class="glow-btn next" data-next="c-cake">One last thing 🎂</button>
+    </section>
+
+    <section class="chapter hidden" id="c-cake">
+      <h2>Make a Wish, <span data-name="final"></span> 🎂</h2>
+      <div class="cake" id="cake">
+        <div class="candles"><i class="candle"><b class="flame"></b></i><i class="candle"><b class="flame"></b></i><i class="candle"><b class="flame"></b></i></div>
+        <div class="tier t1"></div><div class="tier t2"></div><div class="plate"></div>
+      </div>
+      <button class="glow-btn" id="wishBtn">Make a Wish ✨</button>
+      <p class="lead wish hidden" id="wishText"></p>
+      <button class="glow-btn hidden" id="surpriseBtn">One More Surprise ✨</button>
+    </section>
+
+    <section class="chapter hidden" id="c-final">
+      <h1 id="finalTitle">Happy Birthday, <span data-name="display"></span> ❤️</h1>
+      <div id="finalBody"></div>
+      <canvas id="heartCanvas"></canvas>
+    </section>
+  </main>
+
+  <!-- Music -->
+  <button id="musicBtn" class="hidden" aria-label="Play or pause music">
+    <span class="bars"><i></i><i></i><i></i></span><span class="note">♪</span>
+  </button>
+  <audio id="audio" src="audio/birthday-song.mp3" loop preload="none"></audio>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="hidden">
+    <button id="lbClose" aria-label="Close">✕</button>
+    <button id="lbPrev" aria-label="Previous">‹</button>
+    <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+    <button id="lbNext" aria-label="Next">›</button>
+  </div>
+
+  <!-- Secret popup -->
+  <div id="secretModal" class="hidden">
+    <div class="glass box">
+      <h2>Found my little secret. 🤭❤️</h2>
+      <p class="lead" id="secretText"></p>
+      <button class="glow-btn" id="secretClose">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
